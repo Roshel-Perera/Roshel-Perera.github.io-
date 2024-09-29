@@ -2,12 +2,12 @@
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    color: #f0f0f0;
-    background-color: #1a1a1a;
+    color: #333;
+    background-color: #f0f0f0;
 }
 
 a {
-    color: #66ccff;
+    color: #007BFF;
     text-decoration: none;
 }
 
@@ -15,109 +15,109 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Sidebar Styles */
-.sidebar {
-    position: fixed;
-    width: 250px;
-    height: 100%;
-    background-color: #111;
-    overflow-y: auto;
-    padding-top: 20px;
-}
-
-.sidebar .profile {
+/* Header Styles */
+header {
+    background-image: url('images/header-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 60px 20px;
     text-align: center;
-    padding: 15px;
+    position: relative;
 }
 
-.sidebar .profile img {
+.header-content {
+    position: relative;
+    z-index: 1;
+}
+
+header::after {
+    content: '';
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+    z-index: 0;
+}
+
+.header-content img {
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
-    margin-bottom: 10px;
+    border: 5px solid white;
 }
 
-.sidebar .profile h1 {
-    margin: 0;
+header h1 {
+    margin: 20px 0 10px;
+    font-size: 48px;
+    font-weight: 700;
+}
+
+header p {
     font-size: 24px;
-    color: #fff;
+    font-weight: 300;
 }
 
-.sidebar .profile p {
-    font-size: 14px;
-    color: #ccc;
+/* Navigation Menu */
+header nav {
+    margin-top: 30px;
 }
 
-.sidebar ul {
-    list-style-type: none;
+header nav ul {
+    list-style: none;
     padding: 0;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
 }
 
-.sidebar ul li {
-    text-align: left;
+header nav ul li {
+    display: inline-block;
 }
 
-.sidebar ul li a {
+header nav ul li a {
     display: block;
-    padding: 15px 20px;
-    color: #ccc;
+    padding: 10px 15px;
+    color: white;
     font-size: 16px;
-    border-bottom: 1px solid #1a1a1a;
+    transition: background 0.3s;
 }
 
-.sidebar ul li a:hover {
-    background-color: #333;
-    color: #fff;
-}
-
-.sidebar .social-links {
-    text-align: center;
-    padding: 15px;
-}
-
-.sidebar .social-links a {
-    margin: 0 5px;
-    color: #ccc;
-    font-size: 20px;
-}
-
-.sidebar .social-links a:hover {
-    color: #66ccff;
+header nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Main Content Styles */
 .main-content {
-    margin-left: 250px;
-    padding: 20px;
+    padding: 40px 20px;
 }
 
 section {
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 
 section h2 {
     font-size: 32px;
-    border-bottom: 2px solid #66ccff;
+    border-bottom: 2px solid #007BFF;
     padding-bottom: 10px;
-    color: #66ccff;
+    color: #007BFF;
 }
 
 section h3 {
     font-size: 24px;
     margin-top: 30px;
-    color: #66ccff;
+    color: #333;
 }
 
 section p,
 section ul {
     font-size: 16px;
     line-height: 1.6;
-    color: #ccc;
+    color: #333;
 }
 
 ul {
-    list-style-type: square;
+    list-style-type: disc;
     margin-left: 20px;
 }
 
@@ -132,7 +132,7 @@ ul {
 
 .work-experience .work-item span {
     font-size: 14px;
-    color: #999;
+    color: #666;
 }
 
 .projects-grid {
@@ -142,21 +142,22 @@ ul {
 }
 
 .project-item {
-    background-color: #222;
+    background-color: #fff;
     padding: 20px;
     flex: 1 1 calc(50% - 20px);
-    border: 1px solid #333;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
 .project-item h3 {
     font-size: 20px;
     margin-top: 0;
-    color: #66ccff;
+    color: #007BFF;
 }
 
 .skills-list,
 .hobbies-list {
-    list-style-type: circle;
+    list-style-type: square;
     margin-left: 20px;
 }
 
@@ -167,11 +168,11 @@ ul {
 
 .contact-info i {
     margin-right: 10px;
-    color: #66ccff;
+    color: #007BFF;
 }
 
 .contact-info a {
-    color: #66ccff;
+    color: #007BFF;
 }
 
 .contact-info a:hover {
@@ -182,60 +183,17 @@ ul {
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #111;
-    position: fixed;
-    width: calc(100% - 250px);
-    bottom: 0;
-    margin-left: 250px;
+    background-color: #f8f9fa;
 }
 
 footer p {
     margin: 0;
-    color: #ccc;
+    color: #666;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .sidebar {
-        width: 200px;
-    }
-
-    .main-content {
-        margin-left: 200px;
-    }
-
     .projects-grid {
         flex-direction: column;
-    }
-
-    footer {
-        width: calc(100% - 200px);
-        margin-left: 200px;
-    }
-}
-
-@media (max-width: 576px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
-
-    .sidebar .profile img {
-        width: 80px;
-        height: 80px;
-    }
-
-    .sidebar ul li a {
-        text-align: center;
-    }
-
-    .main-content {
-        margin-left: 0;
-    }
-
-    footer {
-        width: 100%;
-        margin-left: 0;
     }
 }
